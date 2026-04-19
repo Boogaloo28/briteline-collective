@@ -1,0 +1,290 @@
+/* ── RESET ─────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: #111A0F; overflow-x: hidden; font-family: 'Jost', sans-serif; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; }
+button { cursor: pointer; font-family: 'Jost', sans-serif; }
+
+/* ── COLOR VARIABLES ────────────────────────────────────────────────────────── */
+:root {
+  --darker:  #111A0F;
+  --dark:    #1A2218;
+  --forest:  #2D5A3D;
+  --gold:    #C4A832;
+  --terra:   #C4654A;
+  --purple:  #8B6FA3;
+  --light:   #F5F0E8;
+  --bgAlt:   #EDE8DC;
+  --card:    #FFFFFF;
+  --mist:    #DDD8CC;
+  --ink:     #1A2218;
+}
+
+/* ── DARK SECTION TEXT ──────────────────────────────────────────────────────── */
+/* Any section with dark bg uses these */
+.dark-section { background: var(--darker); }
+.dark-section h1,
+.dark-section h2,
+.dark-section h3,
+.dark-section h4 { color: #FFFFFF; }
+.dark-section p,
+.dark-section li,
+.dark-section span.body { color: rgba(245, 240, 232, 0.85); }
+
+/* ── LIGHT SECTION TEXT ─────────────────────────────────────────────────────── */
+.light-section { background: var(--light); }
+.light-section h1,
+.light-section h2,
+.light-section h3,
+.light-section h4 { color: #1A2218; }
+.light-section p,
+.light-section li,
+.light-section span.body { color: #2C3828; }
+
+.alt-section { background: var(--bgAlt); }
+.alt-section h1,
+.alt-section h2,
+.alt-section h3,
+.alt-section h4 { color: #1A2218; }
+.alt-section p,
+.alt-section li { color: #2C3828; }
+
+/* ── FOREST SECTION ─────────────────────────────────────────────────────────── */
+.forest-section { background: var(--forest); }
+.forest-section h1,
+.forest-section h2,
+.forest-section h3,
+.forest-section h4,
+.forest-section p,
+.forest-section li,
+.forest-section span { color: rgba(245, 240, 232, 0.90); }
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────────────────────── */
+.serif { font-family: 'Cormorant Garamond', serif; }
+.sans  { font-family: 'Jost', sans-serif; }
+.eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── BUTTONS ────────────────────────────────────────────────────────────────── */
+.btn-gold {
+  background: var(--gold);
+  color: #1A2218;
+  border: none;
+  padding: 13px 32px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.btn-gold:hover { background: #FFFFFF; color: #1A2218; transform: translateY(-2px); }
+
+.btn-forest {
+  background: var(--forest);
+  color: var(--light);
+  border: none;
+  padding: 13px 32px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.btn-forest:hover { background: var(--gold); color: #1A2218; }
+
+.btn-outline {
+  background: transparent;
+  color: rgba(245,240,232,0.85);
+  border: 1.5px solid rgba(245,240,232,0.35);
+  padding: 13px 32px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: rgba(245,240,232,0.7); color: #FFFFFF; }
+
+/* ── LAYOUT ─────────────────────────────────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+.section-pad { padding: 80px 0; }
+
+/* ── CARDS ──────────────────────────────────────────────────────────────────── */
+.card {
+  background: #FFFFFF;
+  border: 1px solid var(--mist);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(26,34,24,0.1); }
+
+.card-dark {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+
+/* ── CREDENTIAL BAR ─────────────────────────────────────────────────────────── */
+.cred-bar {
+  background: var(--dark);
+  border-top: 1px solid rgba(196,168,50,0.2);
+  border-bottom: 1px solid rgba(196,168,50,0.2);
+  overflow: hidden;
+  padding: 12px 0;
+}
+.cred-track {
+  display: flex;
+  gap: 48px;
+  animation: scroll-left 40s linear infinite;
+  white-space: nowrap;
+}
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.cred-item {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.cred-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(196,168,50,0.4);
+}
+
+/* ── NAV ────────────────────────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  padding: 18px 0;
+}
+.nav.scrolled {
+  background: rgba(245,240,232,0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(26,34,24,0.08);
+  padding: 12px 0;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.8);
+  background: none;
+  border: none;
+  transition: color 0.2s;
+}
+.nav.scrolled .nav-link { color: #1A2218; }
+.nav-link:hover { color: var(--gold); }
+
+/* ── ANIMATIONS ─────────────────────────────────────────────────────────────── */
+@keyframes fadeIn  { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pulse   { 0%,100%{opacity:.4} 50%{opacity:1} }
+.fade-in { animation: fadeIn 0.4s ease both; }
+
+/* ── FORM INPUTS ────────────────────────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--mist);
+  background: #FFFFFF;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #1A2218;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+.form-input:focus { border-color: var(--gold); }
+.form-input::placeholder { color: #8A9A80; }
+.form-input option { background: #FFFFFF; color: #1A2218; }
+
+.form-input-dark {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #F5F0E8;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+.form-input-dark:focus { border-color: var(--gold); }
+.form-input-dark::placeholder { color: rgba(245,240,232,0.35); }
+.form-input-dark option { background: #1A2218; color: #F5F0E8; }
+
+/* ── PHOTO CARD ─────────────────────────────────────────────────────────────── */
+.photo-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.photo-card:hover { transform: scale(1.015); box-shadow: 0 20px 56px rgba(0,0,0,0.5); }
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17,26,15,0.82) 0%, transparent 40%);
+  pointer-events: none;
+}
+.photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 14px 18px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(245,240,232,0.88);
+  font-style: italic;
+}
+
+/* ── SCROLLBAR ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: #3A4A38; border-radius: 4px; }
