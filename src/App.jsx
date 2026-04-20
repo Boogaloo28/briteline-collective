@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import NavBar from './components/NavBar'
 import CredBar from './components/CredBar'
+import Act1 from './sections/Act1'
 import Hero from './sections/Hero'
 import Services from './sections/Services'
 import WRAPSection from './sections/WRAPSection'
@@ -20,6 +21,7 @@ import Footer from './sections/Footer'
 
 export default function App() {
   const [view, setView] = useState('main')
+  const [showAct1, setShowAct1] = useState(false)
 
   if (view === 'org') {
     return (
@@ -27,11 +29,7 @@ export default function App() {
         <div style={{ textAlign: 'center' }}>
           <p style={{ fontFamily: "'Jost',sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C4A832', marginBottom: 14 }}>For Organizations</p>
           <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 44, fontWeight: 300, color: '#1A2218', marginBottom: 20 }}>Coming Soon</h2>
-          <button
-            onClick={() => setView('main')}
-            className="btn-forest"
-            style={{ padding: '11px 24px', fontSize: 12 }}
-          >
+          <button onClick={() => setView('main')} className="btn-forest" style={{ padding: '11px 24px', fontSize: 12 }}>
             ← Back to Main Site
           </button>
         </div>
@@ -41,8 +39,16 @@ export default function App() {
 
   return (
     <>
+      {showAct1 && (
+        <Act1 onComplete={() => {
+          setShowAct1(false)
+          setTimeout(() => {
+            document.getElementById('s-services')?.scrollIntoView({ behavior: 'smooth' })
+          }, 300)
+        }}/>
+      )}
       <NavBar onOrg={() => setView('org')} />
-      <Hero onBegin={() => document.getElementById('s-services')?.scrollIntoView({ behavior: 'smooth' })} />
+      <Hero onBegin={() => setShowAct1(true)} />
       <CredBar />
       <Services />
       <WRAPSection />
