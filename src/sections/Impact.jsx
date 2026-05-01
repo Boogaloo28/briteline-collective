@@ -37,7 +37,21 @@ export default function Impact() {
             </div>
           </div>
         </div>
-
+{/* Eric Joseph release video */}
+        <div style={{ maxWidth:440, margin:"0 auto 60px", textAlign:"center" }}>
+          <div style={{ position:"relative", paddingBottom:"125%", height:0, borderRadius:12, overflow:"hidden", boxShadow:"0 15px 40px rgba(0,0,0,0.18)" }}>
+            <iframe
+              src="https://player.vimeo.com/video/1188519673"
+              style={{ position:"absolute", top:0, left:0, width:"100%", height:"100%", border:0 }}
+              title="Eric Joseph's Release After 42 Years"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+          <p style={{ fontFamily:"'Jost',sans-serif", fontSize:13, fontWeight:400, color:C.stone, lineHeight:1.6, fontStyle:"italic", marginTop:14 }}>
+            Eric Joseph walks free after 42 years, followed by reflections from Dennis Horton.
+          </p>
+        </div>
         {/* Who We Serve */}
         <div id="s-who-serve" className="forest-section" style={{ padding:"44px 40px", borderRadius:4 }}>
           <div style={{ display:"grid", gridTemplateColumns:"1fr 2fr", gap:44, alignItems:"center" }}>
