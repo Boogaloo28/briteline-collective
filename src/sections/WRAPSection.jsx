@@ -29,7 +29,24 @@ export default function WRAPSection() {
 
   return (
     <section id="s-wrap" className="light-section" style={{ padding:"80px 0" }}>
-      <div className="container">
+      <div className="container">  
+      
+        <div style={{ maxWidth: "900px", margin: "0 auto 60px", textAlign: "center" }}>
+          <p style={{ fontSize: "1.1rem", marginBottom: "24px", color: "#444" }}>
+            Hear directly from WRAP creator Mary Ellen Copeland and Briteline 
+            co-founder Dennis Horton on the program's mission and impact.
+          </p>
+          <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, borderRadius: "16px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}>
+            <iframe
+              src="https://player.vimeo.com/video/1188380125"
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
+              title="Dennis Horton with Mary Ellen Copeland"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+       
         <div style={{ display:"flex", alignItems:"center", gap:16, marginBottom:48 }}>
           <div style={{ width:44, height:1, background:C.gold }}/>
           <p className="eyebrow">WRAP Training</p>
