@@ -10,11 +10,11 @@ const LEE_PHOTOS = [
 ]
 
 const DENNIS_PHOTOS = [
-  { src:IMG.dennisPortrait, label:"Facilitating",  pos:"center 15%", caption:'Dennis "Freedom" Horton — WRAP Seminar, mid-session' },
-  { src:IMG.dennisFett,     label:"With Fetterman",pos:"center 15%", caption:"Dennis with then-Lieutenant Governor John Fetterman — the man who championed their clemency" },
-  { src:IMG.dennisCanvass,  label:"Canvassing",    pos:"center 15%", caption:"Dennis canvassing — advocacy doesn't stop at the training room" },
-  { src:IMG.dennisEveryday, label:"Everyday Lives",pos:"center 15%", caption:"Dennis at the Everyday Lives: Values in Action conference" },
-  { src:IMG.dennisTrain3,   label:"Mid-Session",   pos:"center 15%", caption:"Dennis mid-thought — 400+ seminars. Not a lecture, a conversation." },
+  { src:IMG.dennisCanvass,    label:"Facilitating",  pos:"center 15%", caption:"Dennis mid-session — facilitator, mentor, witness" },
+  { src:IMG.dennisFett,       label:"With Fetterman",pos:"center 15%", caption:"Dennis with then-Lieutenant Governor John Fetterman — the man who championed their clemency" },
+  { src:IMG.dennisCanvassNew, label:"Canvassing",    pos:"center 15%", caption:"Door to door — the advocacy didn't stop when they came home" },
+  { src:IMG.dennisEveryday,   label:"Everyday Lives",pos:"center 15%", caption:"Dennis at the Everyday Lives: Values in Action conference — wellness as a way of being" },
+  { src:IMG.dennisNyc,        label:"NYC Training",  pos:"center 15%", caption:"Facilitating WRAP at the New York City Department of Health and Mental Hygiene" },
 ]
 
 function FounderCard({ name, color, photos, credentials, bio, dimensions }) {
