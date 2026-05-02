@@ -33,6 +33,8 @@ export const IMG = {
   dennisEveryday:   '/images/dennis-everyday.jpg',
   dennisEveryday:'/images/dennis-everyday.jpg',
   dennisTrain3:  '/images/dennis-train3.jpg',
+  dennisCanvassNew: '/images/dennis-canvass-new.jpg',
+  dennisNyc:        '/images/dennis-nyc.jpg',
   togetherCap:   '/images/together-cap.jpg',
   togetherTrain1:'/images/together-train1.jpg',
   togetherTrain2:'/images/together-train2.jpg',
