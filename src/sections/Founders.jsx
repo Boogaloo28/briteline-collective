@@ -2,19 +2,19 @@ import { useState } from 'react'
 import { C, IMG } from '../constants'
 
 const LEE_PHOTOS = [
-  { src:IMG.leeSenate,   label:"US Senate",      caption:"Lee Horton at the United States Senate Chambers",                        context:"The room where national policy is debated. Lee has been in it." },
-  { src:IMG.leeDoc,      label:"PA DOC Academy", caption:"Lee outside the PA DOC Training Academy",                               context:"Formerly incarcerated — now training the officers." },
-  { src:IMG.leeAdvisory, label:"Advisory Board", caption:"Lee with a fellow member of the Eastern Prison Education Advisory Board", context:"Peer to peer. Colleague to colleague." },
-  { src:IMG.leeCampaign, label:"Campaign",       caption:"Lee at a Fetterman Senate campaign event",                              context:"From clemency recipient to campaign surrogate." },
-  { src:IMG.leeVermont,  label:"Vermont",        caption:"Lee with WRAP creator Mary Ellen Copeland in Vermont",     context:"A man enjoying the day, free." },
+  { src:IMG.leeSenate,   label:"US Senate",      pos:"center 15%", caption:"Lee Horton at the United States Senate Chambers",                        context:"The room where national policy is debated. Lee has been in it." },
+  { src:IMG.leeDoc,      label:"PA DOC Academy", pos:"center 15%", caption:"Lee outside the PA DOC Training Academy",                               context:"Formerly incarcerated — now training the officers." },
+  { src:IMG.leeAdvisory, label:"Advisory Board", pos:"center 15%", caption:"Lee with a fellow member of the Eastern Prison Education Advisory Board", context:"Peer to peer. Colleague to colleague." },
+  { src:IMG.leeCampaign, label:"Campaign",       pos:"20% 30%",    caption:"Lee at a Fetterman Senate campaign event",                              context:"From clemency recipient to campaign surrogate." },
+  { src:IMG.leeVermont,  label:"Vermont",        pos:"center 15%", caption:"Lee with WRAP creator Mary Ellen Copeland in Vermont",                  context:"A man enjoying the day, free." },
 ]
 
 const DENNIS_PHOTOS = [
-  { src:IMG.dennisPortrait, label:"Facilitating",  caption:'Dennis "Freedom" Horton — WRAP Seminar, mid-session' },
-  { src:IMG.dennisFett,     label:"With Fetterman",caption:"Dennis with then-Lieutenant Governor John Fetterman — the man who championed their clemency" },
-  { src:IMG.dennisCanvass,  label:"Canvassing",    caption:"Dennis canvassing — advocacy doesn't stop at the training room" },
-  { src:IMG.dennisEveryday, label:"Everyday Lives",caption:"Dennis at the Everyday Lives: Values in Action conference" },
-  { src:IMG.dennisTrain3,   label:"Mid-Session",   caption:"Dennis mid-thought — 400+ seminars. Not a lecture, a conversation." },
+  { src:IMG.dennisPortrait, label:"Facilitating",  pos:"center 15%", caption:'Dennis "Freedom" Horton — WRAP Seminar, mid-session' },
+  { src:IMG.dennisFett,     label:"With Fetterman",pos:"center 15%", caption:"Dennis with then-Lieutenant Governor John Fetterman — the man who championed their clemency" },
+  { src:IMG.dennisCanvass,  label:"Canvassing",    pos:"center 15%", caption:"Dennis canvassing — advocacy doesn't stop at the training room" },
+  { src:IMG.dennisEveryday, label:"Everyday Lives",pos:"center 15%", caption:"Dennis at the Everyday Lives: Values in Action conference" },
+  { src:IMG.dennisTrain3,   label:"Mid-Session",   pos:"center 15%", caption:"Dennis mid-thought — 400+ seminars. Not a lecture, a conversation." },
 ]
 
 function FounderCard({ name, color, photos, credentials, bio, dimensions }) {
@@ -27,8 +27,8 @@ function FounderCard({ name, color, photos, credentials, bio, dimensions }) {
       <div>
         <div className="photo-card" style={{ marginBottom:10, boxShadow:"0 20px 60px rgba(0,0,0,0.55)", aspectRatio:"3/4", position:"relative" }}
           onClick={() => setActive(a => (a+1) % photos.length)}>
-          <img key={active} src={photo.src} alt={photo.caption}
-            style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center 15%", animation:"fadeIn 0.4s ease" }}/>
+         <img key={active} src={photo.src} alt={photo.caption}
+  style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:photo.pos, animation:"fadeIn 0.4s ease" }}/>
           <div className="photo-overlay"/>
           {photo.context && (
             <div style={{ position:"absolute", top:14, right:14, maxWidth:200, padding:"7px 12px", background:"rgba(17,26,15,0.78)", backdropFilter:"blur(8px)", borderRadius:4, border:`1px solid ${color}22` }}>
