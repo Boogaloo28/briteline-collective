@@ -6,7 +6,7 @@ const LEE_PHOTOS = [
   { src:IMG.leeDoc,      label:"PA DOC Academy", caption:"Lee outside the PA DOC Training Academy",                               context:"Formerly incarcerated — now training the officers." },
   { src:IMG.leeAdvisory, label:"Advisory Board", caption:"Lee with a fellow member of the Eastern Prison Education Advisory Board", context:"Peer to peer. Colleague to colleague." },
   { src:IMG.leeCampaign, label:"Campaign",       caption:"Lee at a Fetterman Senate campaign event",                              context:"From clemency recipient to campaign surrogate." },
-  { src:IMG.leeVermont,  label:"Vermont",        caption:"Lee at Mary Ellen Copeland's son's maple syrup building — Vermont",     context:"A man enjoying the day, free." },
+  { src:IMG.leeVermont,  label:"Vermont",        caption:"Lee with WRAP creator Mary Ellen Copeland in Vermont",     context:"A man enjoying the day, free." },
 ]
 
 const DENNIS_PHOTOS = [
