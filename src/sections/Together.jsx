@@ -3,7 +3,7 @@ import { C, IMG } from '../constants'
 const PHOTOS = [
   { src:IMG.togetherCap,     label:"HEAL PA",       pos:"center 25%", caption:"Lee and Dennis at the Pennsylvania State Capitol — HEAL PA" },
   { src:IMG.togetherParole,  label:"Parole Reform", pos:"center 25%", caption:"At the Capitol with lawmakers — advocating for parole reform for life-sentenced individuals" },
-  { src:IMG.togetherRutgers, label:"Rutgers",       pos:"center 60%", caption:"After lecturing at Rutgers — bringing the work to the academy" },
+  { src:IMG.togetherRutgers, label:"Rutgers",       pos:"center 40%", caption:"After lecturing at Rutgers — bringing the work to the academy" },
   { src:IMG.togetherTrain2,  label:"Mid-Session",   pos:"center 25%", caption:"Mid-session — the seamless coordination that only comes from decades of shared work" },
 ]
 
