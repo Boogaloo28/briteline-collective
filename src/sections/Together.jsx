@@ -1,9 +1,10 @@
 import { C, IMG } from '../constants'
 
 const PHOTOS = [
-  { src:IMG.togetherCap,    label:"State Capitol",   caption:"Lee and Dennis at the Pennsylvania State Capitol — HEAL PA" },
-  { src:IMG.togetherTrain1, label:"In the Room",     caption:"Both facilitators in the training room — whiteboard filling with participant-generated tools" },
-  { src:IMG.togetherTrain2, label:"Mid-Session",     caption:"Mid-session — the seamless coordination that only comes from decades of shared work" },
+  { src:IMG.togetherCap,     label:"HEAL PA",       caption:"Lee and Dennis at the Pennsylvania State Capitol — HEAL PA" },
+  { src:IMG.togetherParole,  label:"Parole Reform", caption:"At the Capitol with lawmakers — advocating for parole reform for life-sentenced individuals" },
+  { src:IMG.togetherRutgers, label:"Rutgers",       caption:"After lecturing at Rutgers — bringing the work to the academy" },
+  { src:IMG.togetherTrain2,  label:"Mid-Session",   caption:"Mid-session — the seamless coordination that only comes from decades of shared work" },
 ]
 
 export default function Together() {
