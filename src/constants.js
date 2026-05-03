@@ -36,6 +36,8 @@ export const IMG = {
   dennisCanvassNew: '/images/dennis-canvass-new.jpg',
   dennisNyc:        '/images/dennis-nyc.jpg',
   togetherCap:   '/images/together-cap.jpg',
+  togetherParole:  '/images/together-parole.jpg',
+  togetherRutgers: '/images/together-rutgers.jpg',
   togetherTrain1:'/images/together-train1.jpg',
   togetherTrain2:'/images/together-train2.jpg',
   docGroup:      '/images/doc-group.jpg',
