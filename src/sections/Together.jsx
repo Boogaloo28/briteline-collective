@@ -1,10 +1,10 @@
 import { C, IMG } from '../constants'
 
 const PHOTOS = [
-  { src:IMG.togetherCap,     label:"HEAL PA",       caption:"Lee and Dennis at the Pennsylvania State Capitol — HEAL PA" },
-  { src:IMG.togetherParole,  label:"Parole Reform", caption:"At the Capitol with lawmakers — advocating for parole reform for life-sentenced individuals" },
-  { src:IMG.togetherRutgers, label:"Rutgers",       caption:"After lecturing at Rutgers — bringing the work to the academy" },
-  { src:IMG.togetherTrain2,  label:"Mid-Session",   caption:"Mid-session — the seamless coordination that only comes from decades of shared work" },
+  { src:IMG.togetherCap,     label:"HEAL PA",       pos:"center 25%", caption:"Lee and Dennis at the Pennsylvania State Capitol — HEAL PA" },
+  { src:IMG.togetherParole,  label:"Parole Reform", pos:"center 25%", caption:"At the Capitol with lawmakers — advocating for parole reform for life-sentenced individuals" },
+  { src:IMG.togetherRutgers, label:"Rutgers",       pos:"center 60%", caption:"After lecturing at Rutgers — bringing the work to the academy" },
+  { src:IMG.togetherTrain2,  label:"Mid-Session",   pos:"center 25%", caption:"Mid-session — the seamless coordination that only comes from decades of shared work" },
 ]
 
 export default function Together() {
@@ -35,7 +35,7 @@ export default function Together() {
           <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
             {PHOTOS.map((ph,i) => (
               <div key={i} className="photo-card" style={{ boxShadow:"0 6px 24px rgba(0,0,0,0.15)" }}>
-                <img src={ph.src} alt={ph.caption} style={{ width:"100%", height:180, objectFit:"cover", objectPosition:"center 25%" }}/>
+                <img src={ph.src} alt={ph.caption} style={{ width:"100%", height:180, objectFit:"cover", objectPosition:ph.pos }}/>
                 <div className="photo-overlay"/>
                 <div className="photo-caption">{ph.caption}</div>
               </div>
