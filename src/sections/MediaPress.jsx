@@ -14,7 +14,7 @@ export default function MediaPress() {
         {/* Emmy Award */}
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:48, alignItems:"center", marginBottom:56 }}>
           <div className="photo-card" style={{ boxShadow:"0 12px 44px rgba(0,0,0,0.55)", border:`1px solid ${C.gold}35` }}>
-            <img src={IMG.emmy} alt="Lee and Dennis Horton at the Emmy Awards" style={{ width:"100%", height:520, objectFit:"cover", objectPosition:"center 0%" }}/>
+            <img src={IMG.emmy} alt="Lee and Dennis Horton at the Emmy Awards" style={{ width:"100%", height:520, objectFit:"cover", objectPosition:"center 15%" }}/>
             <div className="photo-overlay"/>
             <div style={{ position:"absolute", top:14, left:14, display:"flex", alignItems:"center", gap:8, padding:"6px 14px", background:`${C.gold}20`, border:`1.5px solid ${C.gold}60`, borderRadius:4 }}>
               <span style={{ fontSize:16 }}>🏆</span>
