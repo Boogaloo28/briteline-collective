@@ -127,7 +127,7 @@ function speakSentences(guide, onDone) {
 export default function Act1({ onComplete }) {
   const [active, setActive] = useState(null)
   const [phase, setPhase] = useState('selecting')
-  const timerRef = useRef(null)
+  const [heard, setHeard] = useState([])
 
   useEffect(() => {
     if ('speechSynthesis' in window) {
@@ -135,25 +135,23 @@ export default function Act1({ onComplete }) {
       window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices()
     }
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current)
       window.speechSynthesis && window.speechSynthesis.cancel()
     }
   }, [])
 
   const handleSelect = (guide) => {
-    if (phase !== 'selecting') return
+    if (phase === 'playing') return
     setActive(guide)
     setPhase('playing')
 
     speakSentences(guide, () => {
-      setPhase('done')
-      timerRef.current = setTimeout(() => onComplete(), 1500)
+      setHeard(prev => prev.includes(guide.id) ? prev : [...prev, guide.id])
+      setPhase('selecting')
     })
   }
 
   const handleSkip = () => {
     window.speechSynthesis && window.speechSynthesis.cancel()
-    if (timerRef.current) clearTimeout(timerRef.current)
     onComplete()
   }
 
@@ -168,9 +166,8 @@ export default function Act1({ onComplete }) {
         </p>
 
         <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(32px,5vw,56px)', fontWeight: 300, color: '#FFFFFF', lineHeight: 1.1, marginBottom: 40 }}>
-          {phase === 'selecting' && 'Choose your guide.'}
+          {phase === 'selecting' && (active ? 'Hear another voice — or enter the site.' : 'Choose your guide.')}
           {phase === 'playing' && <em style={{ color: active?.color }}>{active?.name}</em>}
-          {phase === 'done' && 'Welcome to Briteline.'}
         </h2>
 
         {phase === 'playing' && active && (
@@ -182,34 +179,14 @@ export default function Act1({ onComplete }) {
         )}
 
         <div style={{ display: 'flex', gap: 32, justifyContent: 'center', flexWrap: 'wrap' }}>
-          {GUIDES.map(guide => (
-            <div key={guide.id} onClick={() => handleSelect(guide)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: phase === 'selecting' ? 'pointer' : 'default', opacity: phase === 'playing' && active?.id !== guide.id ? 0.25 : 1, transition: 'all 0.4s ease', transform: active?.id === guide.id ? 'scale(1.1)' : 'scale(1)' }}>
-              <div style={{ width: 120, height: 120, borderRadius: '50%', overflow: 'hidden', marginBottom: 14, border: `3px solid ${active?.id === guide.id ? guide.color : 'rgba(255,255,255,0.15)'}`, boxShadow: active?.id === guide.id ? `0 0 32px ${guide.color}60` : 'none', transition: 'all 0.35s ease' }}>
-                <img src={guide.src} alt={guide.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}/>
-              </div>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 500, color: guide.color, marginBottom: 4 }}>{guide.name}</p>
-              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 300, color: 'rgba(245,240,232,0.65)', fontStyle: 'italic' }}>{guide.title}</p>
-            </div>
-          ))}
-        </div>
-
-        {phase === 'selecting' && (
-          <button onClick={handleSkip} style={{ marginTop: 48, background: 'none', border: 'none', fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.3)', cursor: 'pointer' }}
-            onMouseEnter={e => e.target.style.color = 'rgba(245,240,232,0.65)'}
-            onMouseLeave={e => e.target.style.color = 'rgba(245,240,232,0.3)'}>
-            Skip → Enter Site
-          </button>
-        )}
-
-        {phase === 'playing' && (
-          <button onClick={handleSkip} style={{ marginTop: 32, background: 'none', border: '1px solid rgba(245,240,232,0.2)', borderRadius: 2, padding: '9px 24px', fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.5)', cursor: 'pointer' }}
-            onMouseEnter={e => { e.target.style.color = '#FFFFFF'; e.target.style.borderColor = 'rgba(245,240,232,0.5)' }}
-            onMouseLeave={e => { e.target.style.color = 'rgba(245,240,232,0.5)'; e.target.style.borderColor = 'rgba(245,240,232,0.2)' }}>
-            Continue → Enter Site
-          </button>
-        )}
-
-      </div>
-    </section>
-  )
-}
+          {GUIDES.map(guide => {
+            const isActive = active?.id === guide.id
+            const isPlaying = phase === 'playing'
+            const isHeard = heard.includes(guide.id)
+            const dimmed = isPlaying && !isActive
+            return (
+              <div key={guide.id} onClick={() => handleSelect(guide)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: isPlaying ? 'default' : 'pointer', opacity: dimmed ? 0.25 : 1, transition: 'all 0.4s ease', transform: isActive && isPlaying ? 'scale(1.1)' : 'scale(1)' }}>
+                <div style={{ width: 120, height: 120, borderRadius: '50%', overflow: 'hidden', marginBottom: 14, border: `3px solid ${isActive && isPlaying ? guide.color : isHeard ? `${guide.color}80` : 'rgba(255,255,255,0.15)'}`, boxShadow: isActive && isPlaying ? `0 0 32px ${guide.color}60` : 'none', transition: 'all 0.35s ease', position: 'relative' }}>
+                  <img src={guide.src} alt={guide.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}/>
+                  {isHeard && !isActive && (
+                    <div style={{ position: 'absolute', top: 6, right: 6, width: 22, height: 22, borderRadius: '50%', background: gu
