@@ -189,4 +189,25 @@ export default function Act1({ onComplete }) {
                 <div style={{ width: 120, height: 120, borderRadius: '50%', overflow: 'hidden', marginBottom: 14, border: `3px solid ${isActive && isPlaying ? guide.color : isHeard ? `${guide.color}80` : 'rgba(255,255,255,0.15)'}`, boxShadow: isActive && isPlaying ? `0 0 32px ${guide.color}60` : 'none', transition: 'all 0.35s ease', position: 'relative' }}>
                   <img src={guide.src} alt={guide.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}/>
                   {isHeard && !isActive && (
-                    <div style={{ position: 'absolute', top: 6, right: 6, width: 22, height: 22, borderRadius: '50%', background: gu
+                    <div style={{ position: 'absolute', top: 6, right: 6, width: 22, height: 22, borderRadius: '50%', background: guide.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF', fontSize: 12, fontWeight: 700 }}>✓</div>
+                  )}
+                </div>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 500, color: guide.color, marginBottom: 4 }}>{guide.name}</p>
+                <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 300, color: 'rgba(245,240,232,0.65)', fontStyle: 'italic' }}>{guide.title}</p>
+              </div>
+            )
+          })}
+        </div>
+
+        {phase === 'selecting' && (
+          <button onClick={handleSkip} style={{ marginTop: 48, background: active ? C.gold : 'none', border: active ? 'none' : 'none', borderRadius: active ? 2 : 0, padding: active ? '12px 28px' : 0, fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: active ? 700 : 500, letterSpacing: '0.16em', textTransform: 'uppercase', color: active ? C.darker : 'rgba(245,240,232,0.3)', cursor: 'pointer', transition: 'all 0.3s ease' }}
+            onMouseEnter={e => { if (!active) e.target.style.color = 'rgba(245,240,232,0.65)' }}
+            onMouseLeave={e => { if (!active) e.target.style.color = 'rgba(245,240,232,0.3)' }}>
+            {active ? 'Continue → Enter Site' : 'Skip → Enter Site'}
+          </button>
+        )}
+
+      </div>
+    </section>
+  )
+}
