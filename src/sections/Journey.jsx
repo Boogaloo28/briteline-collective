@@ -48,18 +48,16 @@ export default function Journey() {
             <div className="photo-overlay"/>
             <div className="photo-caption">Vermont — with Mary Ellen Copeland and Ed Athens</div>
           </div>
-          <div style={{ display:"flex", flexDirection:"column", justifyContent:"center" }}>
+         <div style={{ display:"flex", flexDirection:"column", justifyContent:"center" }}>
             <h3 className="serif" style={{ fontSize:"clamp(22px,3vw,34px)", fontWeight:300, color:"#FFFFFF", lineHeight:1.2, marginBottom:14 }}>
-              The relationship<br/><em style={{ color:C.gold }}>that changed WRAP</em>
+              The relationship<br/><em style={{ color:C.gold }}>that strengthens the mission</em>
             </h3>
             <p style={{ fontFamily:"'Jost',sans-serif", fontSize:14, fontWeight:400, color:"rgba(245,240,232,0.85)", lineHeight:1.85, marginBottom:14 }}>
-              Lee and Dennis visited Mary Ellen Copeland — the originator of WRAP — in Vermont. That relationship led to their recognition as the architects of the first WRAP Center of Distinction and the first Licensed Partner in the new era of WRAP.
+              When Lee and Dennis visited Mary Ellen Copeland — who led the team that founded WRAP — at her home in Vermont, the conversation became more than a meeting. That visit deepened their commitment to WRAP's principles of wellness, hope, and self-determination, and to keeping those principles accessible, inclusive, and rooted in the spirit in which they were created.
             </p>
-            <div style={{ padding:"16px 20px", background:`${C.gold}10`, border:`1px solid ${C.gold}20`, borderLeft:`3px solid ${C.gold}`, borderRadius:4 }}>
-              <p className="serif" style={{ fontSize:17, fontWeight:300, color:"#F5F0E8", lineHeight:1.65, fontStyle:"italic" }}>
-                "Two people on opposite sides of the same door — and they found their way to the same room."
-              </p>
-            </div>
+            <p style={{ fontFamily:"'Jost',sans-serif", fontSize:14, fontWeight:400, color:"rgba(245,240,232,0.85)", lineHeight:1.85 }}>
+              It is where the BriteLine begins.
+            </p>
           </div>
         </div>
       </div>
