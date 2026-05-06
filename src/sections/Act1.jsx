@@ -8,10 +8,10 @@ const GUIDES = [
     title: "I'll welcome you home.",
     color: C.gold,
     src: IMG.guide,
+    gender: 'male',
     pitch: 0.8,
     rate: 0.78,
     lang: 'en-US',
-    // Split into short sentences — fixes Chrome cutoff bug
     sentences: [
       "Welcome.",
       "I am here to help you find your footing.",
@@ -25,6 +25,7 @@ const GUIDES = [
     title: "I'll show you our mission.",
     color: C.terra,
     src: IMG.advocate,
+    gender: 'female',
     pitch: 1.1,
     rate: 0.88,
     lang: 'en-US',
@@ -41,6 +42,7 @@ const GUIDES = [
     title: "I'll walk beside you.",
     color: C.forest,
     src: IMG.mentor,
+    gender: 'female',
     pitch: 1.15,
     rate: 0.82,
     lang: 'en-AU',
@@ -58,6 +60,7 @@ const GUIDES = [
     title: "I'll call you to action.",
     color: C.purple,
     src: IMG.leader,
+    gender: 'male',
     pitch: 1.2,
     rate: 0.95,
     lang: 'en-GB',
@@ -69,11 +72,44 @@ const GUIDES = [
   },
 ]
 
+// Common voice name patterns by gender across Mac, Windows, iOS, Android
+const FEMALE_VOICE_NAMES = [
+  'Samantha', 'Karen', 'Tessa', 'Moira', 'Veena', 'Fiona', 'Victoria',
+  'Zira', 'Eva', 'Susan', 'Ava', 'Allison', 'Kate', 'Serena',
+  'female', 'Female',
+]
+const MALE_VOICE_NAMES = [
+  'Daniel', 'Alex', 'Tom', 'Fred', 'Oliver', 'Lee', 'Aaron', 'Bruce',
+  'David', 'Mark', 'James', 'Arthur',
+  'male', 'Male',
+]
+
+function pickVoice(voices, gender, langCode) {
+  const langPrefix = langCode.split('-')[0]
+  const langVoices = voices.filter(v => v.lang.startsWith(langPrefix))
+  const pool = langVoices.length > 0 ? langVoices : voices
+  const targetNames = gender === 'female' ? FEMALE_VOICE_NAMES : MALE_VOICE_NAMES
+
+  // First: exact region match (e.g. en-US, en-AU) AND gender
+  for (const name of targetNames) {
+    const v = pool.find(v => v.lang === langCode && v.name.includes(name))
+    if (v) return v
+  }
+  // Then: any matching language with the right gender
+  for (const name of targetNames) {
+    const v = pool.find(v => v.name.includes(name))
+    if (v) return v
+  }
+  // Fallback — first available voice
+  return pool[0] || null
+}
+
 function speakSentences(guide, onDone) {
   if (!('speechSynthesis' in window)) { onDone(); return }
   window.speechSynthesis.cancel()
 
   const voices = window.speechSynthesis.getVoices()
+  const matchedVoice = pickVoice(voices, guide.gender, guide.lang)
   let idx = 0
 
   function speakNext() {
@@ -82,14 +118,7 @@ function speakSentences(guide, onDone) {
     u.pitch = guide.pitch
     u.rate = guide.rate
     u.volume = 1
-
-    // Try to match language and differentiate voices
-    const langVoices = voices.filter(v => v.lang.startsWith(guide.lang.split('-')[0]))
-    if (langVoices.length > 0) {
-      // Pick different voice index for each guide
-      const voiceIdx = GUIDES.findIndex(g => g.id === guide.id) % langVoices.length
-      u.voice = langVoices[voiceIdx]
-    }
+    if (matchedVoice) u.voice = matchedVoice
 
     u.onend = () => { idx++; speakNext() }
     u.onerror = () => { idx++; speakNext() }
@@ -139,123 +168,4 @@ export default function Act1({ onComplete }) {
       position: 'fixed', inset: 0, zIndex: 200,
       background: C.darker,
       display: 'flex', flexDirection: 'column',
-      alignItems: 'center', justifyContent: 'center',
-      padding: '40px 24px',
-    }}>
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: `radial-gradient(ellipse at center, ${C.forest}20 0%, transparent 70%)`,
-        pointerEvents: 'none',
-      }}/>
-
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: 900, width: '100%' }}>
-
-        <p style={{
-          fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500,
-          letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: C.gold, marginBottom: 16,
-        }}>
-          {phase === 'playing' ? `${active?.name} speaks` : 'Choose your guide'}
-        </p>
-
-        <h2 style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: 'clamp(32px,5vw,56px)', fontWeight: 300,
-          color: '#FFFFFF', lineHeight: 1.1, marginBottom: 40,
-        }}>
-          {phase === 'selecting' && 'Choose your guide.'}
-          {phase === 'playing' && <em style={{ color: active?.color }}>{active?.name}</em>}
-          {phase === 'done' && 'Welcome to Briteline.'}
-        </h2>
-
-        {/* Dialogue */}
-        {phase === 'playing' && active && (
-          <div style={{
-            maxWidth: 600, margin: '0 auto 40px',
-            padding: '24px 32px',
-            background: `${active.color}15`,
-            border: `1px solid ${active.color}40`,
-            borderLeft: `3px solid ${active.color}`,
-            borderRadius: 4,
-          }}>
-            <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 20, fontWeight: 300,
-              color: '#FFFFFF', lineHeight: 1.8, fontStyle: 'italic',
-            }}>
-              "{active.sentences.join(' ')}"
-            </p>
-          </div>
-        )}
-
-        {/* Portraits */}
-        <div style={{ display: 'flex', gap: 32, justifyContent: 'center', flexWrap: 'wrap' }}>
-          {GUIDES.map(guide => (
-            <div key={guide.id}
-              onClick={() => handleSelect(guide)}
-              style={{
-                display: 'flex', flexDirection: 'column', alignItems: 'center',
-                cursor: phase === 'selecting' ? 'pointer' : 'default',
-                opacity: phase === 'playing' && active?.id !== guide.id ? 0.25 : 1,
-                transition: 'all 0.4s ease',
-                transform: active?.id === guide.id ? 'scale(1.1)' : 'scale(1)',
-              }}
-            >
-              <div style={{
-                width: 120, height: 120, borderRadius: '50%',
-                overflow: 'hidden', marginBottom: 14,
-                border: `3px solid ${active?.id === guide.id ? guide.color : 'rgba(255,255,255,0.15)'}`,
-                boxShadow: active?.id === guide.id ? `0 0 32px ${guide.color}60` : 'none',
-                transition: 'all 0.35s ease',
-              }}>
-                <img src={guide.src} alt={guide.name}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}/>
-              </div>
-              <p style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 18, fontWeight: 500, color: guide.color, marginBottom: 4,
-              }}>{guide.name}</p>
-              <p style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: 12, fontWeight: 300,
-                color: 'rgba(245,240,232,0.65)', fontStyle: 'italic',
-              }}>{guide.title}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Skip */}
-        {phase === 'selecting' && (
-          <button onClick={handleSkip} style={{
-            marginTop: 48, background: 'none', border: 'none',
-            fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500,
-            letterSpacing: '0.16em', textTransform: 'uppercase',
-            color: 'rgba(245,240,232,0.3)', cursor: 'pointer',
-          }}
-            onMouseEnter={e => e.target.style.color = 'rgba(245,240,232,0.65)'}
-            onMouseLeave={e => e.target.style.color = 'rgba(245,240,232,0.3)'}
-          >
-            Skip → Enter Site
-          </button>
-        )}
-
-        {/* Continue while playing */}
-        {phase === 'playing' && (
-          <button onClick={handleSkip} style={{
-            marginTop: 32, background: 'none',
-            border: '1px solid rgba(245,240,232,0.2)', borderRadius: 2,
-            padding: '9px 24px', fontFamily: "'Jost', sans-serif",
-            fontSize: 11, fontWeight: 500, letterSpacing: '0.16em',
-            textTransform: 'uppercase', color: 'rgba(245,240,232,0.5)', cursor: 'pointer',
-          }}
-            onMouseEnter={e => { e.target.style.color = '#FFFFFF'; e.target.style.borderColor = 'rgba(245,240,232,0.5)' }}
-            onMouseLeave={e => { e.target.style.color = 'rgba(245,240,232,0.5)'; e.target.style.borderColor = 'rgba(245,240,232,0.2)' }}
-          >
-            Continue → Enter Site
-          </button>
-        )}
-
-      </div>
-    </section>
-  )
-}
+      alignItems: 'center', justifyContent: 'cen
