@@ -72,7 +72,6 @@ const GUIDES = [
   },
 ]
 
-// Common voice name patterns by gender across Mac, Windows, iOS, Android
 const FEMALE_VOICE_NAMES = [
   'Samantha', 'Karen', 'Tessa', 'Moira', 'Veena', 'Fiona', 'Victoria',
   'Zira', 'Eva', 'Susan', 'Ava', 'Allison', 'Kate', 'Serena',
@@ -90,17 +89,14 @@ function pickVoice(voices, gender, langCode) {
   const pool = langVoices.length > 0 ? langVoices : voices
   const targetNames = gender === 'female' ? FEMALE_VOICE_NAMES : MALE_VOICE_NAMES
 
-  // First: exact region match (e.g. en-US, en-AU) AND gender
   for (const name of targetNames) {
     const v = pool.find(v => v.lang === langCode && v.name.includes(name))
     if (v) return v
   }
-  // Then: any matching language with the right gender
   for (const name of targetNames) {
     const v = pool.find(v => v.name.includes(name))
     if (v) return v
   }
-  // Fallback — first available voice
   return pool[0] || null
 }
 
@@ -125,7 +121,6 @@ function speakSentences(guide, onDone) {
     window.speechSynthesis.speak(u)
   }
 
-  // Small delay ensures voices are ready
   setTimeout(speakNext, 150)
 }
 
@@ -135,7 +130,6 @@ export default function Act1({ onComplete }) {
   const timerRef = useRef(null)
 
   useEffect(() => {
-    // Pre-load voices
     if ('speechSynthesis' in window) {
       window.speechSynthesis.getVoices()
       window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices()
@@ -164,8 +158,58 @@ export default function Act1({ onComplete }) {
   }
 
   return (
-    <section style={{
-      position: 'fixed', inset: 0, zIndex: 200,
-      background: C.darker,
-      display: 'flex', flexDirection: 'column',
-      alignItems: 'center', justifyContent: 'cen
+    <section style={{ position: 'fixed', inset: 0, zIndex: 200, background: C.darker, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
+      <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse at center, ${C.forest}20 0%, transparent 70%)`, pointerEvents: 'none' }}/>
+
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: 900, width: '100%' }}>
+
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: C.gold, marginBottom: 16 }}>
+          {phase === 'playing' ? `${active?.name} speaks` : 'Choose your guide'}
+        </p>
+
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(32px,5vw,56px)', fontWeight: 300, color: '#FFFFFF', lineHeight: 1.1, marginBottom: 40 }}>
+          {phase === 'selecting' && 'Choose your guide.'}
+          {phase === 'playing' && <em style={{ color: active?.color }}>{active?.name}</em>}
+          {phase === 'done' && 'Welcome to Briteline.'}
+        </h2>
+
+        {phase === 'playing' && active && (
+          <div style={{ maxWidth: 600, margin: '0 auto 40px', padding: '24px 32px', background: `${active.color}15`, border: `1px solid ${active.color}40`, borderLeft: `3px solid ${active.color}`, borderRadius: 4 }}>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 300, color: '#FFFFFF', lineHeight: 1.8, fontStyle: 'italic' }}>
+              "{active.sentences.join(' ')}"
+            </p>
+          </div>
+        )}
+
+        <div style={{ display: 'flex', gap: 32, justifyContent: 'center', flexWrap: 'wrap' }}>
+          {GUIDES.map(guide => (
+            <div key={guide.id} onClick={() => handleSelect(guide)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: phase === 'selecting' ? 'pointer' : 'default', opacity: phase === 'playing' && active?.id !== guide.id ? 0.25 : 1, transition: 'all 0.4s ease', transform: active?.id === guide.id ? 'scale(1.1)' : 'scale(1)' }}>
+              <div style={{ width: 120, height: 120, borderRadius: '50%', overflow: 'hidden', marginBottom: 14, border: `3px solid ${active?.id === guide.id ? guide.color : 'rgba(255,255,255,0.15)'}`, boxShadow: active?.id === guide.id ? `0 0 32px ${guide.color}60` : 'none', transition: 'all 0.35s ease' }}>
+                <img src={guide.src} alt={guide.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}/>
+              </div>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 500, color: guide.color, marginBottom: 4 }}>{guide.name}</p>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 300, color: 'rgba(245,240,232,0.65)', fontStyle: 'italic' }}>{guide.title}</p>
+            </div>
+          ))}
+        </div>
+
+        {phase === 'selecting' && (
+          <button onClick={handleSkip} style={{ marginTop: 48, background: 'none', border: 'none', fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.3)', cursor: 'pointer' }}
+            onMouseEnter={e => e.target.style.color = 'rgba(245,240,232,0.65)'}
+            onMouseLeave={e => e.target.style.color = 'rgba(245,240,232,0.3)'}>
+            Skip → Enter Site
+          </button>
+        )}
+
+        {phase === 'playing' && (
+          <button onClick={handleSkip} style={{ marginTop: 32, background: 'none', border: '1px solid rgba(245,240,232,0.2)', borderRadius: 2, padding: '9px 24px', fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.5)', cursor: 'pointer' }}
+            onMouseEnter={e => { e.target.style.color = '#FFFFFF'; e.target.style.borderColor = 'rgba(245,240,232,0.5)' }}
+            onMouseLeave={e => { e.target.style.color = 'rgba(245,240,232,0.5)'; e.target.style.borderColor = 'rgba(245,240,232,0.2)' }}>
+            Continue → Enter Site
+          </button>
+        )}
+
+      </div>
+    </section>
+  )
+}
