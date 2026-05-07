@@ -7,15 +7,26 @@ export default function Hero({ onBegin }) {
       minHeight: 640, overflow: 'hidden', display: 'flex',
       alignItems: 'center', justifyContent: 'center',
     }}>
-      {/* Background image */}
-      <img src={IMG.docGroup} alt="" style={{
-        position: 'absolute', inset: 0, width: '100%', height: '100%',
-        objectFit: 'cover', objectPosition: 'center 30%',
-        opacity: 0.18, filter: 'saturate(0.3)',
-      }}/>
+      {/* Background video */}
+      <video
+        src="/videos/hero-walk.mp4"
+        poster="/images/hero-walk-poster.jpg"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        style={{
+          position: 'absolute', inset: 0, width: '100%', height: '100%',
+          objectFit: 'cover', objectPosition: 'center center',
+          opacity: 0.45,
+        }}
+      />
+
+      {/* Darkening gradient — keeps text readable over varying video brightness */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: `radial-gradient(ellipse at center, ${C.darker}60 0%, ${C.darker} 80%)`,
+        background: `linear-gradient(to bottom, ${C.darker}70 0%, ${C.darker}40 35%, ${C.darker}50 65%, ${C.darker}90 100%)`,
       }}/>
 
       {/* Content */}
@@ -31,6 +42,7 @@ export default function Hero({ onBegin }) {
           fontFamily: "'Cormorant Garamond', serif",
           fontSize: 'clamp(52px, 8vw, 100px)',
           fontWeight: 300, lineHeight: 1.05, color: '#FFFFFF', marginBottom: 28,
+          textShadow: '0 2px 24px rgba(0,0,0,0.45)',
         }}>
           Where Recovery<br/>
           <em style={{ color: C.gold }}>Becomes</em><br/>
@@ -38,8 +50,9 @@ export default function Hero({ onBegin }) {
         </h1>
         <p style={{
           fontFamily: "'Jost', sans-serif", fontSize: 16, fontWeight: 300,
-          color: 'rgba(245,240,232,0.85)', lineHeight: 1.75,
+          color: 'rgba(245,240,232,0.92)', lineHeight: 1.75,
           maxWidth: 580, margin: '0 auto 40px',
+          textShadow: '0 1px 12px rgba(0,0,0,0.5)',
         }}>
           A multidisciplinary collective of facilitators, peer support professionals,
           wellness instructors, justice advocates, and trauma-informed practitioners —
