@@ -38,7 +38,7 @@ export default function WRAPSection() {
           </p>
           <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, borderRadius: "16px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}>
             <iframe
-              src="https://player.vimeo.com/video/1188380125"
+              src="https://player.vimeo.com/video/1190061074"
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
               title="Dennis Horton with Mary Ellen Copeland"
               allow="autoplay; fullscreen; picture-in-picture"
