@@ -63,7 +63,7 @@ const GUIDES = [
     gender: 'male',
     pitch: 1.2,
     rate: 0.95,
-    lang: 'en-GB',
+    lang: 'en-US',
     sentences: [
       "You already have what it takes.",
       "The question is what you do with it.",
