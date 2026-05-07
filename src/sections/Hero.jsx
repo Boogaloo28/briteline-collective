@@ -9,7 +9,7 @@ export default function Hero({ onBegin }) {
     }}>
       {/* Background video */}
       <video
-        src="/videos/hero-walk.mp4"
+        src="/images/hero-walk.mp4"
         poster="/images/hero-walk-poster.jpg"
         autoPlay
         loop
