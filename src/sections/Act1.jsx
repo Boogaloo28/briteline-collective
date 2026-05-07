@@ -27,9 +27,9 @@ const GUIDES = [
     color: C.terra,
     src: IMG.advocate,
     gender: 'female',
-    voiceNames: ['Zira', 'Microsoft Zira', 'Eva', 'Allison', 'Samantha'],
-    pitch: 1.05,
-    rate: 0.92,
+    voiceNames: ['Samantha', 'Allison', 'Eva', 'Zira', 'Microsoft Zira'],
+    pitch: 1.0,
+    rate: 1.0,
     lang: 'en-US',
     sentences: [
       "We fight for people.",
@@ -45,9 +45,9 @@ const GUIDES = [
     color: C.forest,
     src: IMG.mentor,
     gender: 'female',
-    voiceNames: ['Tessa', 'Karen', 'Moira', 'Susan', 'Veena', 'Fiona'],
-    pitch: 1.15,
-    rate: 0.82,
+    voiceNames: ['Tessa', 'Karen', 'Moira', 'Susan', 'Fiona', 'Veena', 'Zira', 'Microsoft Zira'],
+    pitch: 1.3,
+    rate: 0.7,
     lang: 'en-US',
     sentences: [
       "Recovery is not a straight line.",
@@ -76,23 +76,35 @@ const GUIDES = [
   },
 ]
 
-const FEMALE_FALLBACK = ['Samantha', 'Karen', 'Tessa', 'Moira', 'Zira', 'Eva', 'Allison']
-const MALE_FALLBACK = ['Daniel', 'Alex', 'Tom', 'Fred', 'Oliver', 'David', 'Mark', 'James']
+const FEMALE_FALLBACK = ['Zira', 'Microsoft Zira', 'Samantha', 'Karen', 'Tessa', 'Moira', 'Eva', 'Allison']
+const MALE_FALLBACK = ['David', 'Microsoft David', 'Mark', 'Microsoft Mark', 'Daniel', 'Alex', 'Tom', 'Fred']
 
 function pickVoice(voices, guide) {
   const langPrefix = guide.lang.split('-')[0]
   const langVoices = voices.filter(v => v.lang.startsWith(langPrefix))
   const pool = langVoices.length > 0 ? langVoices : voices
-  const targetNames = guide.voiceNames || (guide.gender === 'female' ? FEMALE_FALLBACK : MALE_FALLBACK)
+  const genderFallback = guide.gender === 'female' ? FEMALE_FALLBACK : MALE_FALLBACK
 
-  for (const name of targetNames) {
+  if (guide.voiceNames) {
+    for (const name of guide.voiceNames) {
+      const v = pool.find(v => v.lang === guide.lang && v.name.includes(name))
+      if (v) return v
+    }
+    for (const name of guide.voiceNames) {
+      const v = pool.find(v => v.name.includes(name))
+      if (v) return v
+    }
+  }
+
+  for (const name of genderFallback) {
     const v = pool.find(v => v.lang === guide.lang && v.name.includes(name))
     if (v) return v
   }
-  for (const name of targetNames) {
+  for (const name of genderFallback) {
     const v = pool.find(v => v.name.includes(name))
     if (v) return v
   }
+
   return pool[0] || null
 }
 
