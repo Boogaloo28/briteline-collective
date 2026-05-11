@@ -46,7 +46,7 @@ export default function Journey() {
           <div className="photo-card" style={{ boxShadow:"0 8px 32px rgba(0,0,0,0.4)" }}>
             <img src={IMG.vermont} alt="Lee and Dennis in Vermont with Mary Ellen Copeland and Ed Anthens" style={{ width:"100%", height:300, objectFit:"cover", objectPosition:"center 30%" }}/>
             <div className="photo-overlay"/>
-            <div className="photo-caption">Vermont — with Mary Ellen Copeland and Ed Athens</div>
+            <div className="photo-caption">Vermont — with Mary Ellen Copeland and Ed Anthens</div>
           </div>
          <div style={{ display:"flex", flexDirection:"column", justifyContent:"center" }}>
             <h3 className="serif" style={{ fontSize:"clamp(22px,3vw,34px)", fontWeight:300, color:"#FFFFFF", lineHeight:1.2, marginBottom:14 }}>
