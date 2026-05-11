@@ -44,7 +44,7 @@ export default function Journey() {
         {/* Vermont / MEC section */}
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:44, maxWidth:900, margin:"0 auto" }}>
           <div className="photo-card" style={{ boxShadow:"0 8px 32px rgba(0,0,0,0.4)" }}>
-            <img src={IMG.vermont} alt="Lee and Dennis in Vermont with Mary Ellen Copeland and Ed Athens" style={{ width:"100%", height:300, objectFit:"cover", objectPosition:"center 30%" }}/>
+            <img src={IMG.vermont} alt="Lee and Dennis in Vermont with Mary Ellen Copeland and Ed Anthens" style={{ width:"100%", height:300, objectFit:"cover", objectPosition:"center 30%" }}/>
             <div className="photo-overlay"/>
             <div className="photo-caption">Vermont — with Mary Ellen Copeland and Ed Athens</div>
           </div>
