@@ -10,13 +10,6 @@ const ENDORSERS = [
     stat:"10+ States", statLabel:"where their WRAP work is formally recognized by a sitting judge",
   },
   {
-    name:"Hon. Stephanie M. Sawyer", title:"Judge, Court of Common Pleas",
-    org:"First Judicial District of Pennsylvania · Philadelphia, PA",
-    date:"May 1, 2025", color:C.gold,
-    quote:"For the past three years the Horton Brothers have been resources I have used on my most difficult to reach defendants. Specifically, Marvin McMichael comes to mind as a gentleman who was transformed from an argumentative, non-productive person to an enlightened community leader working with troubled youth as a sports coach. I fully credit this transformation to the work of the Horton Brothers.",
-    stat:"3 Years", statLabel:"Judge Sawyer has relied on the Hortons for her most difficult-to-reach defendants",
-  },
-  {
     name:"Jeffrey L. Bohn", title:"Executive Director",
     org:"Shining Light, Inc. · Annville, PA",
     date:"May 23, 2025", color:C.forest,
@@ -43,7 +36,7 @@ export default function Endorsements() {
             What the people who know the work<br/><em style={{ color:C.gold }}>best have to say</em>
           </h2>
           <p style={{ fontFamily:"'Jost',sans-serif", fontSize:14, fontWeight:400, color:C.stone, lineHeight:1.8, maxWidth:580, margin:"0 auto" }}>
-            Two sitting judges and a nonprofit executive with 45 years of experience — all writing to the Pennsylvania Board of Pardons within weeks of each other. All arriving at the same conclusion.
+            A sitting judge and a nonprofit executive with 45 years of experience — both writing to the Pennsylvania Board of Pardons within a month of each other. Both arriving at the same conclusion.
           </p>
         </div>
 
@@ -82,12 +75,11 @@ export default function Endorsements() {
               <p style={{ fontFamily:"'Jost',sans-serif", fontSize:13, fontWeight:400, color:C.stone, lineHeight:1.65 }}>{e.statLabel}</p>
             </div>
             <div style={{ padding:"20px 24px", background:C.card, border:`1px solid ${C.mist}`, borderRadius:4 }}>
-              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:C.gold, marginBottom:12 }}>All Three Endorsers Confirm</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:C.gold, marginBottom:12 }}>Both Endorsers Confirm</p>
               {[
                 "Part of the first cohort of Certified Peer Specialists trained inside a PA state prison",
                 "WRAP recognized across 10+ states — documented on official judicial letterhead",
                 "25% reduction in violent incidents at Shining Light Academy",
-                "Trusted by two sitting judges for their most difficult-to-reach defendants",
                 "Emmy Award — documentary of their story earned television's highest honor",
               ].map(item => (
                 <div key={item} style={{ display:"flex", gap:9, alignItems:"flex-start", marginBottom:9 }}>
