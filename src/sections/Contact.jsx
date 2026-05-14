@@ -4,6 +4,30 @@ import { C, CONTACT } from '../constants'
 export default function ContactSection() {
   const [form, setForm] = useState({ name:"", org:"", email:"", service:"", message:"" })
   const [sub, setSub] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+
+  const encode = (data) => Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!form.name || !form.email) return
+    if (submitting) return
+    setSubmitting(true)
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contactform', ...form })
+      })
+      setSub(true)
+    } catch (err) {
+      alert("There was a problem sending your message. Please email us directly at " + CONTACT.email)
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <section id="s-contact" className="dark-section" style={{ padding:"80px 0 96px" }}>
@@ -47,31 +71,42 @@ export default function ContactSection() {
                 </p>
               </div>
             ) : (
-              <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
+              <form
+                name="contactform"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                style={{ display:"flex", flexDirection:"column", gap:12 }}
+              >
+                <input type="hidden" name="form-name" value="contactform" />
+                <p style={{ display:"none" }}>
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
                 <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
-                  <input className="form-input-dark" placeholder="Your name *" value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/>
-                  <input className="form-input-dark" placeholder="Organization" value={form.org} onChange={e=>setForm({...form,org:e.target.value})}/>
+                  <input name="name" className="form-input-dark" placeholder="Your name *" value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/>
+                  <input name="org" className="form-input-dark" placeholder="Organization" value={form.org} onChange={e=>setForm({...form,org:e.target.value})}/>
                 </div>
-                <input className="form-input-dark" placeholder="Email address *" type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})}/>
-                <select className="form-input-dark" value={form.service} onChange={e=>setForm({...form,service:e.target.value})}>
+                <input name="email" className="form-input-dark" placeholder="Email address *" type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})}/>
+                <select name="service" className="form-input-dark" value={form.service} onChange={e=>setForm({...form,service:e.target.value})}>
                   <option value="">Service of interest...</option>
                   <option>WRAP Seminar I — Build my wellness plan</option>
                   <option>WRAP Seminar II — Become a certified facilitator</option>
                   <option>WRAP Seminar III — Advanced Level Facilitator</option>
                   <option>Mental Health First Aid</option>
-                  <option>Forensic Peer Consulting</option>
+                  <option>Peer Support Consulting</option>
                   <option>Criminal Justice Consulting</option>
                   <option>DOC / CIT Training</option>
                   <option>General inquiry</option>
                 </select>
-                <textarea className="form-input-dark" placeholder="Tell us about your goals or questions..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})} style={{resize:"vertical"}}/>
-                <button className="btn-gold" onClick={()=>{ if(form.name&&form.email) setSub(true) }} style={{ padding:"15px", fontSize:13 }}>
-                  Send Message
+                <textarea name="message" className="form-input-dark" placeholder="Tell us about your goals or questions..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})} style={{resize:"vertical"}}/>
+                <button type="submit" disabled={submitting} className="btn-gold" style={{ padding:"15px", fontSize:13 }}>
+                  {submitting ? "Sending..." : "Send Message"}
                 </button>
                 <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, color:"rgba(245,240,232,0.35)", textAlign:"center" }}>
                   We respond within 2 business days · * Required fields
                 </p>
-              </div>
+              </form>
             )}
           </div>
         </div>
