@@ -45,6 +45,42 @@ export default function MediaPress() {
           <div style={{ flex:1, height:1, background:`${C.gold}15` }}/>
         </div>
 
+        {/* Montana National Guard */}
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:44, alignItems:"center", marginBottom:52 }}>
+          <div>
+            <p className="eyebrow" style={{ marginBottom:16 }}>Documented in WRAP, Inc.</p>
+            <h3 className="serif" style={{ fontSize:"clamp(24px,3vw,38px)", fontWeight:300, color:"#FFFFFF", lineHeight:1.15, marginBottom:14 }}>
+              Trusted by the<br/><em style={{ color:C.gold }}>Montana National Guard</em>
+            </h3>
+            <p style={{ fontFamily:"'Jost',sans-serif", fontSize:14, fontWeight:400, color:"rgba(245,240,232,0.85)", lineHeight:1.85, marginBottom:14 }}>
+              In August 2023, Lee and Dennis Horton co-facilitated WRAP Seminar I for 29 members of the Montana Army National Guard at Fort Harrison in Helena — alongside Lynn Miller, AHP WRAP Director. That October, nine of those participants returned for Seminar II and earned their Certified WRAP Facilitator credentials.
+            </p>
+            <p style={{ fontFamily:"'Jost',sans-serif", fontSize:14, fontWeight:400, color:"rgba(245,240,232,0.85)", lineHeight:1.85, marginBottom:20 }}>
+              The engagement was profiled by WRAP, Inc. in its national publication for Veterans Day 2023 — a recognition that placed the Hortons' work directly in conversation with military wellness initiatives nationwide.
+            </p>
+            <a href="https://www.wellnessrecoveryactionplan.com/honoring-our-veterans/" target="_blank" rel="noopener noreferrer"
+              style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"10px 18px", background:`${C.gold}12`, border:`1.5px solid ${C.gold}40`, borderRadius:4, fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:C.gold, textDecoration:"none" }}>
+              Read the article at WRAP, Inc. ↗
+            </a>
+          </div>
+          <div style={{ padding:"32px 32px", background:`${C.gold}06`, border:`1px solid ${C.gold}25`, borderLeft:`3px solid ${C.gold}`, borderRadius:4 }}>
+            <div className="serif" style={{ fontSize:42, color:C.gold, lineHeight:0.8, marginBottom:14, opacity:0.4 }}>"</div>
+            <p className="serif" style={{ fontSize:19, fontWeight:300, color:"#FFFFFF", lineHeight:1.7, fontStyle:"italic", marginBottom:20 }}>
+              The WRAP Team brought forth an instant credibility and connected with the group immediately. Listening to everyone's story at the very beginning set the tone for the whole program.
+            </p>
+            <div style={{ paddingTop:14, borderTop:`1px solid ${C.gold}25` }}>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:13, fontWeight:600, color:"#FFFFFF", marginBottom:3 }}>Lawrence B.G. Rhone</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, color:C.gold, fontWeight:500 }}>U.S. Army DAV · Veteran's Advocate</p>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ margin:"0 0 44px 0", display:"flex", alignItems:"center", gap:20 }}>
+          <div style={{ flex:1, height:1, background:`${C.gold}15` }}/>
+          <div style={{ width:5, height:5, borderRadius:"50%", background:`${C.gold}35` }}/>
+          <div style={{ flex:1, height:1, background:`${C.gold}15` }}/>
+        </div>
+
         {/* NAMI */}
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:44, alignItems:"center", marginBottom:52 }}>
           <div>
