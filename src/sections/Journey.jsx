@@ -4,7 +4,7 @@ const TL = [
   { year:"1993",         label:"Wrongfully Convicted",          color:"#8B7040", summary:"Sentenced to life without parole for a crime they steadfastly maintained they did not commit — entering the system with no prior record." },
   { year:"1993–2021",    label:"Scholars, Advocates & Innovators", color:"#6B8F71", summary:"Built programs, ran an informal legal clinic, became Certified Peer Support Specialists, co-founded the Life Enhancement Senior Center, and integrated WRAP, yoga, and creative arts into daily life." },
   { year:"Feb 12, 2021", label:"Clemency & Release",            color:C.gold,    summary:"With clemency championed by then–Lieutenant Governor John Fetterman, Governor Tom Wolf granted their release — a defining moment in Pennsylvania's conversation on life sentences and second chances." },
-  { year:"2021–Present", label:"Pioneering Wellness Leadership", color:"#C4903A", summary:"Became Lead Advanced Level WRAP Facilitators. Made history at the PA DOC Training Academy. Co-launched the nation's first WRAP Center of Distinction, recognized by AHP." },
+  { year:"2021–Present", label:"Pioneering Wellness Leadership", color:"#C4903A", summary:"Became Advanced Level WRAP Facilitators. Made history at the PA DOC Training Academy. Co-launched the nation's first WRAP Center of Distinction, recognized by AHP." },
   { year:"The Name",     label:"The Origin of BriteLine",       color:C.forest,  summary:"A bright path cast both behind them and before them — a spiritual GPS pointing toward purpose, freedom, and fulfillment. Everyone has a BriteLine leading forward; for many it is too dim to see clearly." },
 ]
 
