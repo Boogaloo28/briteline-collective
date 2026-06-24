@@ -1,4 +1,4 @@
-import { C } from '../constants'
+import { C, CONTACT } from '../constants'
 
 const SERVICES = [
   { icon:"◎", color:C.gold,   tag:"WRAP Training",       title:"WRAP Seminars I & II",
@@ -54,6 +54,21 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        {/* Membership callout */}
+        <div style={{ marginTop:24, padding:"24px 32px", background:`${C.gold}12`, border:`1.5px solid ${C.gold}30`, borderRadius:4, display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:16 }}>
+          <div>
+            <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:6 }}>
+              <span style={{ fontSize:18, color:C.gold }}>✦</span>
+              <span className="serif" style={{ fontSize:22, fontWeight:500, color:C.ink }}>Briteline Collective Members Save 10%</span>
+            </div>
+            <p style={{ fontFamily:"'Jost',sans-serif", fontSize:14, fontWeight:400, color:C.stone, lineHeight:1.7 }}>
+              On all trainings — WRAP Seminars, Mental Health First Aid, and more. Payment plans available (2 or 3 installments). Ask us when you register.
+            </p>
+          </div>
+          <a href={`mailto:${CONTACT.email}?subject=Briteline Collective Membership Inquiry`} className="btn-gold" style={{ fontSize:12, whiteSpace:"nowrap" }}>Learn More</a>
+        </div>
+
       </div>
     </section>
   )
