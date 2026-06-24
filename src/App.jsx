@@ -15,7 +15,6 @@ import Journey from './sections/Journey'
 import Impact from './sections/Impact'
 import Endorsements from './sections/Endorsements'
 import MediaPress from './sections/MediaPress'
-import Schedule from './sections/Schedule'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 
@@ -62,7 +61,6 @@ export default function App() {
       <Impact />
       <Endorsements />
       <MediaPress />
-      <Schedule />
       <Contact />
       <Footer />
     </>
