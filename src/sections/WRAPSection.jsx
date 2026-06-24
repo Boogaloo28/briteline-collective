@@ -6,14 +6,10 @@ const SEMINARS = [
     desc:"The foundational WRAP experience — and the required prerequisite for all further WRAP training. Individuals build their own personalized Wellness Recovery Action Plan in a supportive peer group. Also available for organizations seeking employee wellness programming.",
     outcomes:["A completed, personalized WRAP document you own and keep","Your own wellness toolbox, daily plan, and crisis plan","Tools to identify triggers and early warning signs","Connection to a peer community that understands the journey","Your foundation for Seminar II facilitator training"],
     note:"Participation and sharing are always voluntary. Every WRAP is unique — because every life is unique." },
-  { num:"II",  tag:"Facilitator", format:"In-Person",            price:"$1,000",                       dur:"3 days", seats:"Up to 16", color:"#C4903A",
+  { num:"II",  tag:"Facilitator", format:"In-Person",            price:"$900",                       dur:"3 days", seats:"Up to 16", color:"#C4903A",
     desc:"Open to individuals and organizations alike. If you want to become a certified WRAP Facilitator — whether you work for an agency or are pursuing it independently — Seminar II is your pathway. In-person training with direct practice, observation, and feedback. Prerequisite: Seminar I.",
     outcomes:["Skills and confidence to facilitate WRAP Seminar I","Direct practice with observation and feedback","Understanding of AHP facilitator credentialing requirements","Co-facilitation strategies for peer-led groups","Pathway toward Advanced Level Facilitator (ALF) status"],
     note:"Prerequisite: Completion of WRAP Seminar I. In-person format allows the depth of practice this training requires." },
-  { num:"III", tag:"Advanced",    format:"Contact for Information", price:"Contact Us",                dur:"4 days", seats:"By eligibility", color:C.forest,
-    desc:"The highest level of WRAP facilitation training available. Open to any certified WRAP Facilitator — individuals or organizational staff — pursuing Advanced Level Facilitator (ALF) status. Contact us to discuss eligibility, availability, and pricing.",
-    outcomes:["Advanced facilitation skills for complex and institutional settings","Pathway to Advanced Level Facilitator (ALF) credential through AHP","Capacity to train and mentor other WRAP facilitators","Recognition by Advocates for Human Potential (AHP)","Contact us to discuss eligibility and next steps"],
-    note:"Contact us for information on eligibility, scheduling, and pricing for Seminar III." },
 ]
 
 const FOUR_PARTS = [
