@@ -105,14 +105,14 @@ export default function Founders() {
           name="Lee Horton"
           color={C.gold}
           photos={LEE_PHOTOS}
-          credentials={["Lead Advanced Level Facilitator","HEAL PA Co-Chair","Eastern Prison Education Advisory Board","Board Member — Shining Light, Inc."]}
+          credentials={["Advanced Level Facilitator","HEAL PA Co-Chair","Eastern Prison Education Advisory Board","Board Member — Shining Light, Inc."]}
           bio={[
-            "Lee Horton is a co-founder of Briteline Collective and a Lead Advanced Level WRAP Facilitator. Following 28 years of wrongful incarceration, he has built a national platform at the intersection of wellness, criminal justice, and policy — grounded in the belief that transformation is always possible.",
+            "Lee Horton is a co-founder of Briteline Collective and an Advanced Level WRAP Facilitator. Following 28 years of wrongful incarceration, he has built a national platform at the intersection of wellness, criminal justice, and policy — grounded in the belief that transformation is always possible.",
             "Lee has facilitated over 400 WRAP seminars across corrections, healthcare, and community settings. He has stood at a United States Senate podium, trained DOC staff at the Pennsylvania Department of Corrections Training Academy, served on the Eastern Prison Education Advisory Board, and co-authored the HEAL PA Report.",
           ]}
           dimensions={[
             { icon:"◎", label:"The Policy Architect", color:C.gold,   desc:"US Senate. HEAL PA. Eastern Prison Education Advisory Board. The policy rooms know his name." },
-            { icon:"△", label:"The Facilitator",      color:C.forest, desc:"Part of a small group of Lead ALF credential holders nationally. PA DOC Training Academy. 400+ seminars." },
+            { icon:"△", label:"The Facilitator",      color:C.forest, desc:"Part of a small group of ALF credential holders nationally. PA DOC Training Academy. 400+ seminars." },
             { icon:"✦", label:"The Advocate",         color:"#C4903A",desc:"Criminal justice reform. Exoneration work. The advocacy that brought Eric Joseph home after 42 years." },
           ]}
         />
@@ -127,14 +127,14 @@ export default function Founders() {
           name={'Dennis "Freedom" Horton'}
           color="#C4903A"
           photos={DENNIS_PHOTOS}
-          credentials={["Lead Advanced Level Facilitator","Certified Forensic Peer Specialist","HEAL PA Co-Chair","PA DOC CIT Trainer","Certified Peer Support Specialist"]}
+          credentials={["Advanced Level Facilitator","Certified Forensic Peer Specialist","HEAL PA Co-Chair","PA DOC CIT Trainer","Certified Peer Support Specialist"]}
           bio={[
-            'Dennis "Freedom" Horton is a co-founder of Briteline Collective, Lead Advanced Level WRAP Facilitator, and Certified Forensic Peer Support Specialist since 2013. Following 28 years of wrongful incarceration, he has become one of the most credentialed peer wellness and criminal justice advocates in the country.',
+            'Dennis "Freedom" Horton is a co-founder of Briteline Collective, Advanced Level WRAP Facilitator, and Certified Forensic Peer Support Specialist since 2013. Following 28 years of wrongful incarceration, he has become one of the most credentialed peer wellness and criminal justice advocates in the country.',
             "Dennis has facilitated over 400 WRAP seminars across corrections, healthcare, and community settings. He made history as one of the first formerly incarcerated individuals hired as subcontractors at the Pennsylvania Department of Corrections Training Academy — returning to a system he once navigated as a prisoner, this time as its teacher.",
             "As Co-Chair of the Governor's HEAL PA Corrections Committee, Dennis co-authored the definitive blueprint for trauma-informed criminal justice in Pennsylvania. He also serves as a PA DOC Crisis Intervention Training (CIT) Trainer, delivering education on trauma and the prisoner experience to corrections staff statewide.",
           ]}
           dimensions={[
-            { icon:"◎", label:"The Facilitator",  color:"#C4903A", desc:"Part of a small group of Lead ALF credential holders nationally. 400+ seminars. The Facilitator Training Manual on every table." },
+            { icon:"◎", label:"The Facilitator",  color:"#C4903A", desc:"Part of a small group of ALF credential holders nationally. 400+ seminars. The Facilitator Training Manual on every table." },
             { icon:"✦", label:"The Advocate",     color:C.terra,   desc:"Jailhouse lawyer. HEAL PA Co-Chair. PA DOC CIT Trainer. The advocacy that freed Eric Joseph after 42 years." },
             { icon:"△", label:"The Organizer",    color:C.forest,  desc:"Door to door. Thumbs up. Coalition to coalition. The work doesn\'t stop when the seminar ends." },
           ]}
@@ -143,7 +143,7 @@ export default function Founders() {
         <div style={{ marginTop:72, textAlign:"center", maxWidth:660, margin:"72px auto 0" }}>
           <div style={{ width:1, height:44, background:`linear-gradient(to bottom,${C.gold}45,transparent)`, margin:"0 auto 24px" }}/>
           <p className="serif" style={{ fontSize:"clamp(18px,2.8vw,28px)", fontWeight:300, color:"#FFFFFF", lineHeight:1.65, fontStyle:"italic", marginBottom:16 }}>
-            "Together, they are part of a small group of Lead ALF credential holders nationally — and the living proof that the brightest line forward is the one you illuminate for someone else."
+            "Together, they are part of a small group of ALF credential holders nationally — and the living proof that the brightest line forward is the one you illuminate for someone else."
           </p>
           <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:C.gold }}>
             Briteline Collective · Philadelphia, PA
