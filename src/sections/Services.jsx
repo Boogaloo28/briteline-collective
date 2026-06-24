@@ -1,8 +1,8 @@
 import { C } from '../constants'
 
 const SERVICES = [
-  { icon:"◎", color:C.gold,   tag:"WRAP Training",       title:"WRAP Seminars I, II & III",
-    desc:"Build your personal wellness plan in Seminar I. Earn your facilitator credential in Seminar II. Advance to Lead ALF status in Seminar III. Open to individuals and organizations alike.",
+  { icon:"◎", color:C.gold,   tag:"WRAP Training",       title:"WRAP Seminars I & II",
+    desc:"Build your personal wellness plan in Seminar I. Earn your facilitator credential in Seminar II. Open to individuals and organizations alike.",
     price:"From $325/person" },
   { icon:"△", color:"#6B7FA3",tag:"Mental Health",        title:"Mental Health First Aid",
     desc:"8-hour nationally certified training to recognize and respond to mental health crises. For individuals, teams, and entire organizations. 10% off for Briteline Collective members.",
