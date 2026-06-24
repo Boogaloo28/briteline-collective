@@ -45,9 +45,9 @@ export default function Together() {
 
         {/* Co-facilitation */}
         <div style={{ padding:"32px 40px", background:C.card, border:`1px solid ${C.mist}`, borderLeft:`3px solid ${C.gold}`, borderRadius:4 }}>
-          <p className="eyebrow" style={{ marginBottom:16 }}>Co-Facilitation in WRAP Seminars I, II & III</p>
+          <p className="eyebrow" style={{ marginBottom:16 }}>Co-Facilitation in WRAP Seminars I & II</p>
           <p style={{ fontFamily:"'Jost',sans-serif", fontSize:14, fontWeight:400, color:C.stone, lineHeight:1.85, marginBottom:14 }}>
-            Co-facilitation is a core fidelity element of WRAP training at every level. Across Seminar I, Seminar II, and Seminar III, every session is led by two certified facilitators working together in real time — whether delivered in person or virtual.
+            Co-facilitation is a core fidelity element of WRAP training at every level. Across Seminar I and Seminar II, every session is led by two certified facilitators working together in real time — whether delivered in person or virtual.
           </p>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:12, marginTop:16 }}>
             {[
