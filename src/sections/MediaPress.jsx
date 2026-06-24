@@ -109,7 +109,7 @@ export default function MediaPress() {
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:28, marginBottom:22 }}>
             <div>
               <p style={{ fontFamily:"'Jost',sans-serif", fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:`${C.gold}70`, marginBottom:10 }}>Credentials & Roles</p>
-              {["Certified Peer Support Specialists & Lead Advanced Level WRAP Facilitators","Part of the first cohort of CPS trained inside a PA state prison","PA DOC Crisis Intervention Training (CIT) Trainers","HEAL PA Co-Chairs — Corrections Committee","Emmy Award — documentary of their story recognized nationally"].map(item => (
+              {["Certified Peer Support Specialists & Advanced Level WRAP Facilitators","Part of the first cohort of CPS trained inside a PA state prison","PA DOC Crisis Intervention Training (CIT) Trainers","HEAL PA Co-Chairs — Corrections Committee","Emmy Award — documentary of their story recognized nationally"].map(item => (
                 <div key={item} style={{ display:"flex", gap:9, alignItems:"flex-start", marginBottom:8 }}>
                   <span style={{ color:C.gold, flexShrink:0, marginTop:2, fontSize:10 }}>✦</span>
                   <p style={{ fontFamily:"'Jost',sans-serif", fontSize:13, fontWeight:400, color:"rgba(245,240,232,0.82)", lineHeight:1.6 }}>{item}</p>
@@ -118,7 +118,7 @@ export default function MediaPress() {
             </div>
             <div>
               <p style={{ fontFamily:"'Jost',sans-serif", fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:`${C.gold}70`, marginBottom:10 }}>Facilitation Track Record</p>
-              {[["400+","Total WRAP seminars across correctional, community, and clinical settings"],["100+","In-person WRAP Seminar I sessions inside correctional facilities"],["First","WRAP Center of Distinction — first Licensed Partner in the new era of WRAP"],["Dozens","WRAP II and III workshops for advanced peer support and implementation"]].map(([n,l]) => (
+              {[["400+","Total WRAP seminars across correctional, community, and clinical settings"],["100+","In-person WRAP Seminar I sessions inside correctional facilities"],["First","WRAP Center of Distinction — first Licensed Partner in the new era of WRAP"],["Dozens","WRAP II workshops for advanced peer support and facilitator development"]].map(([n,l]) => (
                 <div key={n} style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:10 }}>
                   <div className="serif" style={{ fontSize:28, fontWeight:300, color:C.gold, lineHeight:1, flexShrink:0, minWidth:52 }}>{n}</div>
                   <p style={{ fontFamily:"'Jost',sans-serif", fontSize:12, fontWeight:400, color:"rgba(245,240,232,0.82)", lineHeight:1.6, marginTop:4 }}>{l}</p>
