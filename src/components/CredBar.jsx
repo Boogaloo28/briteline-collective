@@ -1,5 +1,5 @@
 const CREDS = [
-  'Lead ALF Credential Holders',
+  'ALF Credential Holders',
   '400+ WRAP Seminars Facilitated',
   '100+ Facilitators Trained',
   'First WRAP Center of Distinction',
