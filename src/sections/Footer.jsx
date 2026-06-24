@@ -27,8 +27,13 @@ export default function Footer() {
               <a href={`tel:${CONTACT.phone.replace(/-/g,"")}`} style={{ fontFamily:"'Jost',sans-serif", fontSize:12, fontWeight:300, color:"rgba(245,240,232,0.65)" }}>{CONTACT.phone}</a>
             </div>
             <div style={{ marginTop:20, padding:"14px 16px", background:`${C.gold}08`, border:`1px solid ${C.gold}15`, borderRadius:4 }}>
-              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:C.gold, marginBottom:4 }}>Upcoming Training</p>
-              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:300, color:"rgba(245,240,232,0.55)", lineHeight:1.6 }}>WRAP Seminar I — Virtual<br/>July 14–17, 2026<br/>11am – 3pm each day</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:C.gold, marginBottom:8 }}>Upcoming Training</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:10, fontWeight:600, color:"rgba(245,240,232,0.7)", letterSpacing:"0.06em", textTransform:"uppercase", marginBottom:3 }}>WRAP Seminar I — Virtual</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:300, color:"rgba(245,240,232,0.55)", lineHeight:1.5, marginBottom:8 }}>July 14–17 · Aug 11–14<br/>Aug 25–28 · Sept 2–5<br/>11am – 3pm each day</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:10, fontWeight:600, color:"rgba(245,240,232,0.7)", letterSpacing:"0.06em", textTransform:"uppercase", marginBottom:3 }}>WRAP Seminar II</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:300, color:"rgba(245,240,232,0.55)", lineHeight:1.5, marginBottom:8 }}>Aug 5–7 · Sept 9–11<br/>8am – 4pm each day</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:10, fontWeight:600, color:"rgba(245,240,232,0.7)", letterSpacing:"0.06em", textTransform:"uppercase", marginBottom:3 }}>Mental Health First Aid</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:300, color:"rgba(245,240,232,0.55)", lineHeight:1.5 }}>Aug 12, 2026</p>
             </div>
           </div>
         </div>
