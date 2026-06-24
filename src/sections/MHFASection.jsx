@@ -42,7 +42,7 @@ export default function MHFASection() {
               ))}
             </div>
             <div style={{ marginBottom:14, padding:"12px 16px", background:`${C.forest}10`, border:`1px solid ${C.forest}25`, borderRadius:4 }}>
-              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:12, fontWeight:500, color:C.forest }}>Briteline Collective members save 10% on Mental Health First Aid. Payment plans available — 2 or 3 installments. Ask us when you register.</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:12, fontWeight:500, color:C.forest }}>Briteline Collective members save 10% on all trainings — WRAP, MHFA, and more. Payment plans available — 2 or 3 installments. Ask us when you register.</p>
             </div>
             <a href={`mailto:${CONTACT.email}?subject=MHFA Registration Request`} className="btn-gold">Register / Request Info</a>
           </div>
