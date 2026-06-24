@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
           <div>
             <p style={{ fontFamily:"'Jost',sans-serif", fontSize:10, fontWeight:700, letterSpacing:"0.16em", textTransform:"uppercase", color:C.gold, marginBottom:14 }}>Services</p>
-            {["WRAP Seminars I, II & III","Mental Health First Aid","Forensic Peer Consulting","Criminal Justice Consulting","DOC / CIT Training","Reentry Program Development"].map(item => (
+            {["WRAP Seminars I & II","Mental Health First Aid","Forensic Peer Consulting","Criminal Justice Consulting","DOC / CIT Training","Reentry Program Development"].map(item => (
               <p key={item} style={{ fontFamily:"'Jost',sans-serif", fontSize:12, fontWeight:300, color:"rgba(245,240,232,0.55)", lineHeight:1.9 }}>{item}</p>
             ))}
           </div>
@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
             <div style={{ marginTop:20, padding:"14px 16px", background:`${C.gold}08`, border:`1px solid ${C.gold}15`, borderRadius:4 }}>
               <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:C.gold, marginBottom:4 }}>Upcoming Training</p>
-              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:300, color:"rgba(245,240,232,0.55)", lineHeight:1.6 }}>WRAP Seminar I — Virtual<br/>May 28–29 & June 4–5<br/>11am – 3pm each day</p>
+              <p style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:300, color:"rgba(245,240,232,0.55)", lineHeight:1.6 }}>WRAP Seminar I — Virtual<br/>July 14–17, 2026<br/>11am – 3pm each day</p>
             </div>
           </div>
         </div>
