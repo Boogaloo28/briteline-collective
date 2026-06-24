@@ -2,15 +2,16 @@ import { useState } from 'react'
 import { C, CONTACT } from '../constants'
 
 const W1 = [
-  { dates:"May 28–29 & June 4–5",  time:"11am – 3pm" },
-  { dates:"June 25–26 & July 2–3", time:"11am – 3pm" },
-  { dates:"July 18–19 & 25–26",    time:"11am – 3pm" },
+  { dates:"July 14–17",     time:"11am – 3pm" },
+  { dates:"August 11–14",   time:"11am – 3pm" },
+  { dates:"August 25–28",   time:"11am – 3pm" },
+  { dates:"September 2–5",  time:"11am – 3pm" },
 ]
 const W2 = [
-  { dates:"June 15–17",    time:"8am – 4pm" },
-  { dates:"August 24–26",  time:"8am – 4pm" },
-  { dates:"October 19–21", time:"8am – 4pm" },
+  { dates:"August 5–7",     time:"8am – 4pm" },
+  { dates:"September 9–11", time:"8am – 4pm" },
 ]
+const MHFA_DATE = "August 12, 2026"
 
 export default function Schedule() {
   const [sub, setSub] = useState(false)
@@ -43,9 +44,9 @@ export default function Schedule() {
         {/* Pricing cards */}
         <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:10, marginBottom:36 }}>
           {[
-            { label:"WRAP Seminar I · Virtual",    price:"$325",    unit:"per participant", color:C.gold,   note:"4 days · 2 weekends · 11am–3pm" },
+            { label:"WRAP Seminar I · Virtual",    price:"$325",    unit:"per participant", color:C.gold,   note:"4 days · Virtual · 11am–3pm" },
             { label:"WRAP Seminar I · In-Person",  price:"$350",    unit:"per participant", color:C.forest, note:"At your site · Contact to schedule" },
-            { label:"WRAP Seminar II",             price:"$1,000",  unit:"per participant", color:C.terra,  note:"3 days · In-Person · Prereq: Seminar I" },
+            { label:"WRAP Seminar II",             price:"$900",  unit:"per participant", color:C.terra,  note:"3 days · In-Person · Prereq: Seminar I" },
             { label:"Briteline Members",           price:"10% Off", unit:"all seminars",    color:"#8B6FA3",note:"Join Briteline Collective to save 10% on all trainings" },
           ].map(item => (
             <div key={item.label} className="card" style={{ borderTop:`3px solid ${item.color}`, padding:"18px 16px" }}>
@@ -84,7 +85,7 @@ export default function Schedule() {
           {/* WRAP II */}
           <div className="card" style={{ borderTop:`3px solid ${C.terra}`, overflow:"hidden" }}>
             <div style={{ background:`${C.terra}10`, borderBottom:`1px solid ${C.terra}18`, padding:"14px 20px" }}>
-              <div style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:C.terra }}>WRAP Seminar II — Facilitator Training · $1,000/person</div>
+              <div style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:C.terra }}>WRAP Seminar II — Facilitator Training · $900/person</div>
             </div>
             {W2.map((s,i) => (
               <div key={i} style={{ display:"flex", justifyContent:"space-between", alignItems:"center", padding:"12px 20px", borderBottom:i<W2.length-1?`1px solid ${C.mist}`:"none", background:i%2===0?"transparent":"rgba(245,240,232,0.4)" }}>
@@ -101,6 +102,26 @@ export default function Schedule() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* MHFA session */}
+        <div className="card" style={{ marginBottom:20, borderTop:`3px solid ${C.forest}`, overflow:"hidden" }}>
+          <div style={{ background:`${C.forest}10`, borderBottom:`1px solid ${C.forest}18`, padding:"14px 20px" }}>
+            <div style={{ fontFamily:"'Jost',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:C.forest }}>Mental Health First Aid — Certification · 1 Day</div>
+          </div>
+          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", padding:"12px 20px" }}>
+            <div>
+              <div className="serif" style={{ fontSize:17, fontWeight:500, color:C.ink, marginBottom:1 }}>{MHFA_DATE}</div>
+              <div style={{ fontFamily:"'Jost',sans-serif", fontSize:12, color:C.stone }}>8-hour nationally certified training</div>
+            </div>
+            <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+              <div style={{ display:"flex", alignItems:"center", gap:4, padding:"4px 10px", background:`${C.forest}12`, border:`1px solid ${C.forest}25`, borderRadius:20 }}>
+                <div style={{ width:5, height:5, borderRadius:"50%", background:C.forest, animation:"pulse 2s ease-in-out infinite" }}/>
+                <span style={{ fontFamily:"'Jost',sans-serif", fontSize:9, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:C.forest }}>Open</span>
+              </div>
+              <a href={`mailto:${CONTACT.email}?subject=Registration: Mental Health First Aid — ${MHFA_DATE}`} className="btn-gold" style={{ fontSize:10, padding:"6px 12px" }}>Register</a>
+            </div>
           </div>
         </div>
 
@@ -154,20 +175,21 @@ export default function Schedule() {
                 <select className="form-input" value={form.seminar} onChange={e=>setForm({...form,seminar:e.target.value})}>
                   <option value="">I'm registering for / interested in...</option>
                   <optgroup label="WRAP Seminar I — Virtual ($325/person)">
-                    <option>Seminar I Virtual — May 28–29 & June 4–5</option>
-                    <option>Seminar I Virtual — June 25–26 & July 2–3</option>
-                    <option>Seminar I Virtual — July 18–19 & 25–26</option>
+                    <option>Seminar I Virtual — July 14–17</option>
+                    <option>Seminar I Virtual — August 11–14</option>
+                    <option>Seminar I Virtual — August 25–28</option>
+                    <option>Seminar I Virtual — September 2–5</option>
                   </optgroup>
                   <optgroup label="WRAP Seminar I — In-Person ($350/person)">
                     <option>Seminar I In-Person — Request a date at my site</option>
                   </optgroup>
-                  <optgroup label="WRAP Seminar II ($1,000/person)">
-                    <option>Seminar II — June 15–17</option>
-                    <option>Seminar II — August 24–26</option>
-                    <option>Seminar II — October 19–21</option>
+                  <optgroup label="WRAP Seminar II ($900/person)">
+                    <option>Seminar II — August 5–7</option>
+                    <option>Seminar II — September 9–11</option>
                   </optgroup>
-                  <option>WRAP Seminar III — Contact for information</option>
-                  <option>Mental Health First Aid</option>
+                  <optgroup label="Mental Health First Aid">
+                    <option>Mental Health First Aid — August 12</option>
+                  </optgroup>
                   <option>General inquiry</option>
                 </select>
                 <input className="form-input" placeholder="Number of participants (if group)" value={form.headcount} onChange={e=>setForm({...form,headcount:e.target.value})}/>
