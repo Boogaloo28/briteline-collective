@@ -92,7 +92,6 @@ export default function ContactSection() {
                   <option value="">Service of interest...</option>
                   <option>WRAP Seminar I — Build my wellness plan</option>
                   <option>WRAP Seminar II — Become a certified facilitator</option>
-                  <option>WRAP Seminar III — Advanced Level Facilitator</option>
                   <option>Mental Health First Aid</option>
                   <option>Peer Support Consulting</option>
                   <option>Criminal Justice Consulting</option>
